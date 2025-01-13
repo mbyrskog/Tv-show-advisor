@@ -1,5 +1,5 @@
 import s from "./style.module.css";
-import { SMALL_IMG_COVER_BASE_URL } from "../../config";
+import { VITE_SMALL_IMG_COVER_BASE_URL } from "../../config";
 const MAX_TITLE_CHAR = 20;
 
 export function TVShowListItem({ tvShow, onClick }) {
@@ -10,7 +10,7 @@ export function TVShowListItem({ tvShow, onClick }) {
     <div onClick={onClick_} className={s.container}>
       <img
         alt={tvShow.name}
-        src={SMALL_IMG_COVER_BASE_URL + tvShow.backdrop_path}
+        src={VITE_SMALL_IMG_COVER_BASE_URL + tvShow.backdrop_path}
         className={s.img}
       />
       <div className={s.title}>
