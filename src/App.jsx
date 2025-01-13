@@ -4,9 +4,11 @@ import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
-import logoImg from "./assets/images/logo.png";
+import logoImg from "/assets/images/logo.png";
 import { TVShowList } from "./components/TVShowList/TVShowList";
 import { SearchBar } from "./components/SearchBar/SearchBar";
+import "./global.css";
+
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
   const [recommendationList, setRecommendationList] = useState([]);
@@ -94,3 +96,5 @@ export function App() {
     </div>
   );
 }
+
+export default App;
