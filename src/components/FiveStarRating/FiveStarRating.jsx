@@ -1,4 +1,5 @@
 import { StarFill, StarHalf, Star as StarEmpty } from "react-bootstrap-icons";
+
 export function FiveStarRating({ rating }) {
   const starList = [];
   const starFillCount = Math.floor(rating);

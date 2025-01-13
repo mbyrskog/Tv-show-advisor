@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TVShowAPI } from "./api/tv-show";
 import s from "./style.module.css";
-import { BACKDROP_BASE_URL } from "./config";
+import { VITE_BACKDROP_BASE_URL } from "./config";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "/assets/images/logo.png";
@@ -65,7 +65,7 @@ export function App() {
       style={{
         background: currentTVShow
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-             url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
+             url("${VITE_BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
       }}>
       <div className={s.header}>
