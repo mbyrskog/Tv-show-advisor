@@ -5,7 +5,7 @@ export function TVShowDetail({ tvShow }) {
   const rating = tvShow.vote_average / 2;
 
   return (
-    <Box sx={{ mx: "auto", mt: 3, p: 2 }}>
+    <Box sx={{ mx: "auto", mt: 4, p: 2 }}>
       {/* Title */}
       <Typography variant="h4" fontWeight="bold" gutterBottom>
         {tvShow.name}
@@ -20,7 +20,7 @@ export function TVShowDetail({ tvShow }) {
       </Stack>
 
       {/* Overview */}
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body1" color="text.secondary">
         {tvShow.overview}
       </Typography>
     </Box>
