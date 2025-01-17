@@ -1,7 +1,7 @@
 import axios from "axios";
 import { VITE_BASE_URL } from "../config";
 
-export class TVShowAPI {
+export class TVShowService {
   static async fetchPopulars() {
     const response = await axios.get(
       `${VITE_BASE_URL}tv/popular?api_key=${import.meta.env.VITE_API_KEY_PARAM}`

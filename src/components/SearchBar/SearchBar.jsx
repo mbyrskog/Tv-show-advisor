@@ -1,11 +1,11 @@
 import { useState } from "react";
-import s from "./style.module.css";
-import { Search as SearchIcon } from "react-bootstrap-icons";
+import { TextField } from "@mui/material";
+import { Input } from "@mui/material";
 
 export function SearchBar({ onSubmit }) {
   const [value, setValue] = useState("");
 
-  function submit(e) {
+  function handleSubmit(e) {
     if (e.key === "Enter" && e.target.value.trim() !== "") {
       onSubmit(e.target.value);
       setValue("");
@@ -17,16 +17,20 @@ export function SearchBar({ onSubmit }) {
   }
 
   return (
-    <>
-      <SearchIcon size={27} className={s.icon} />
-      <input
-        onKeyUp={submit}
-        onChange={handleChange}
-        className={s.input}
-        type="text"
-        value={value}
-        placeholder={"Search a tv show you may like"}
-      />
-    </>
+    <Input
+      fullWidth
+      disableUnderline
+      placeholder="Find a TV show you may like"
+      value={value}
+      onChange={handleChange}
+      onKeyUp={handleSubmit}
+      sx={{
+        borderRadius: 10,
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(5px)",
+        color: "white",
+        padding: 2,
+      }}
+    />
   );
 }

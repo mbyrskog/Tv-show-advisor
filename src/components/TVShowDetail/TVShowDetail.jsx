@@ -1,16 +1,28 @@
 import { FiveStarRating } from "../FiveStarRating/FiveStarRating";
-import s from "./style.module.css";
+import { Box, Typography, Stack } from "@mui/material";
 
 export function TVShowDetail({ tvShow }) {
   const rating = tvShow.vote_average / 2;
+
   return (
-    <div>
-      <div className={s.title}>{tvShow.name}</div>
-      <div className={s.rating_container}>
+    <Box sx={{ mx: "auto", mt: 3, p: 2 }}>
+      {/* Title */}
+      <Typography variant="h4" fontWeight="bold" gutterBottom>
+        {tvShow.name}
+      </Typography>
+
+      {/* Rating Section */}
+      <Stack direction="row" spacing={1} mb={2}>
         <FiveStarRating rating={rating} />
-        <span className={s.rating}>{rating.toFixed(1)}/5</span>
-      </div>
-      <div className={s.overview}>{tvShow.overview}</div>
-    </div>
+        <Typography variant="body1" color="text.secondary">
+          {rating.toFixed(1)}/5
+        </Typography>
+      </Stack>
+
+      {/* Overview */}
+      <Typography variant="body2" color="text.secondary">
+        {tvShow.overview}
+      </Typography>
+    </Box>
   );
 }
