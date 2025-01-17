@@ -69,13 +69,12 @@ export function App() {
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${VITE_BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
         color: "white",
-        p: 1,
+        p: 6,
       }}
     >
       {/* Header */}
-      <Container>
+      <Box>
         <Grid2 container spacing={2} alignItems="center">
-          {/* Logo aligned to the left */}
           <Grid2 xs={12} md={4} lg={4}>
             <Logo
               title="What to watch"
@@ -84,27 +83,27 @@ export function App() {
             />
           </Grid2>
 
-          {/* Search bar takes remaining space */}
+          {/* Search bar */}
           <Grid2 xs={12} md={8} lg={8} sx={{ display: "flex", flexGrow: 1 }}>
             <SearchBar onSubmit={fetchByTitle} />
           </Grid2>
         </Grid2>
-      </Container>
+      </Box>
 
       {/* TV Show Details */}
-      <Container sx={{ mt: 4 }}>
+      <Box sx={{ mt: 4 }}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
-      </Container>
+      </Box>
 
       {/* Recommended Shows */}
-      <Container sx={{ mt: 10 }}>
+      <Box sx={{ mt: 10 }}>
         {currentTVShow && (
           <TVShowList
             onClickItem={updateCurrentTVShow}
             tvShowList={recommendationList}
           />
         )}
-      </Container>
+      </Box>
     </Box>
   );
 }

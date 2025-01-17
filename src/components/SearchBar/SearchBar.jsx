@@ -25,6 +25,7 @@ export function SearchBar({ onSubmit }) {
       onChange={handleChange}
       onKeyUp={handleSubmit}
       sx={{
+        maxWidth: "1000px",
         borderRadius: 10,
         backgroundColor: "rgba(255, 255, 255, 0.2)",
         backdropFilter: "blur(5px)",
