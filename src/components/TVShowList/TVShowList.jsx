@@ -1,19 +1,32 @@
 import { TVShowListItem } from "../TVShowListItem/TVShowListItem";
-import s from "./style.module.css";
+import { Box, Typography } from "@mui/material";
 
 export function TVShowList({ tvShowList, onClickItem }) {
   return (
-    <div>
-      <div className={s.title}>You'll probably like :</div>
-      <div className={s.list}>
-        {tvShowList.map((tvShow) => {
-          return (
-            <span className={s.tv_show_item} key={tvShow.id}>
-              <TVShowListItem onClick={onClickItem} tvShow={tvShow} />
-            </span>
-          );
-        })}
-      </div>
-    </div>
+    <Box
+      sx={{
+        maxWidth: "100%",
+        overflowX: "auto",
+        whiteSpace: "nowrap",
+        mt: 3,
+        p: 2,
+      }}
+    >
+      {/* Title */}
+      <Typography variant="h5" fontWeight="bold" gutterBottom>
+        You will probably like:
+      </Typography>
+
+      {/* Scrollable TV Show List */}
+      <Box sx={{ display: "inline-flex", gap: 2 }}>
+        {tvShowList.map((tvShow) => (
+          <TVShowListItem
+            key={tvShow.id}
+            onClick={onClickItem}
+            tvShow={tvShow}
+          />
+        ))}
+      </Box>
+    </Box>
   );
 }
