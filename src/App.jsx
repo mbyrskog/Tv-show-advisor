@@ -6,7 +6,7 @@ import { Logo } from "./components/Logo/Logo";
 import logoImg from "/assets/images/logo.png";
 import { TVShowList } from "./components/TVShowList/TVShowList";
 import { SearchBar } from "./components/SearchBar/SearchBar";
-import { Box, Container, Grid2 } from "@mui/material";
+import { Box, Grid2 } from "@mui/material";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();

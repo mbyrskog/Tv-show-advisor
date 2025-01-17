@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TextField } from "@mui/material";
 import { Input } from "@mui/material";
 
 export function SearchBar({ onSubmit }) {
