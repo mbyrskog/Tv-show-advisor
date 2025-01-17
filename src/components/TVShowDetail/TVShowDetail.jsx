@@ -1,6 +1,5 @@
 import { FiveStarRating } from "../FiveStarRating/FiveStarRating";
 import { Box, Typography, Stack } from "@mui/material";
-import { Box, Typography, Stack } from "@mui/material";
 
 export function TVShowDetail({ tvShow }) {
   const rating = tvShow.vote_average / 2;
