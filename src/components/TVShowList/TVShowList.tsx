@@ -14,8 +14,6 @@ export function TVShowList({ tvShowList, onClickItem }: TVShowListProps) {
         maxWidth: "100%",
         overflowX: "auto",
         whiteSpace: "nowrap",
-        mt: 3,
-        p: 2,
       }}
     >
       {/* Title */}
@@ -24,7 +22,7 @@ export function TVShowList({ tvShowList, onClickItem }: TVShowListProps) {
       </Typography>
 
       {/* Scrollable TV Show List */}
-      <Box sx={{ display: "inline-flex", gap: 2 }}>
+      <Box sx={{ display: "inline-flex", gap: 2, mb: 2 }}>
         {tvShowList.map((tvShow) => (
           <TVShowListItem
             key={tvShow.id}

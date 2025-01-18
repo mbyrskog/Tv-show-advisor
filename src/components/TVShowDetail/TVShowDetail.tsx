@@ -10,7 +10,7 @@ export function TVShowDetail({ tvShow }: TVShowDetailProps) {
   const rating = tvShow.vote_average / 2;
 
   return (
-    <Box sx={{ mx: "auto", mt: 4, p: 2 }}>
+    <Box sx={{ mx: "auto", mt: 4 }}>
       {/* Title */}
       <Typography variant="h4" fontWeight="bold" gutterBottom>
         {tvShow.name}

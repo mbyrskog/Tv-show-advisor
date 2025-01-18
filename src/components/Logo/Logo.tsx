@@ -8,14 +8,7 @@ interface LogoProps {
 
 export function Logo({ image, title, subtitle }: LogoProps) {
   return (
-    <Box
-      sx={{
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <Box>
       {/* Logo Image and Title */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         <img src={image} alt="logo" style={{ width: 50, height: 50 }} />

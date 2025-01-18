@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TVShow, TVShowService } from "./Services/TVShowService";
 import { VITE_BACKDROP_BASE_URL } from "./config";
-import { Box, Grid2 } from "@mui/material";
+import { Box, Container, Grid2 } from "@mui/material";
 import { Logo } from "./components/Logo/Logo";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
@@ -71,13 +71,13 @@ export function App() {
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${VITE_BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
         color: "white",
-        p: 10,
+        p: 2,
       }}
     >
       {/* Header */}
-      <Box>
+      <Container>
         <Grid2 container spacing={2} alignItems="center">
-          <Grid2>
+          <Grid2 size={{ xs: 12, sm: 3 }}>
             <Logo
               title="What to watch"
               subtitle="Find a show you may like"
@@ -86,26 +86,26 @@ export function App() {
           </Grid2>
 
           {/* Search bar */}
-          <Grid2 sx={{ display: "flex", flexGrow: 1 }}>
+          <Grid2 size={{ xs: 12, sm: 8 }} sx={{ display: "flex", flexGrow: 1 }}>
             <SearchBar onSubmit={fetchByTitle} />
           </Grid2>
         </Grid2>
-      </Box>
+      </Container>
 
       {/* TV Show Details */}
-      <Box sx={{ mt: 4, flexGrow: 1 }}>
+      <Container sx={{ mt: 4, flexGrow: 1 }}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
-      </Box>
+      </Container>
 
       {/* Recommended Shows */}
-      <Box sx={{ mt: "auto", pb: 1 }}>
+      <Container>
         {currentTVShow && (
           <TVShowList
             onClickItem={updateCurrentTVShow}
             tvShowList={recommendationList}
           />
         )}
-      </Box>
+      </Container>
     </Box>
   );
 }
