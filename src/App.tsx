@@ -98,7 +98,7 @@ export function App() {
       </Container>
 
       {/* Recommended Shows */}
-      <Container>
+      <Container sx={{ mt: 4 }}>
         {currentTVShow && (
           <TVShowList
             onClickItem={updateCurrentTVShow}

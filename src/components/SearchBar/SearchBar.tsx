@@ -27,6 +27,14 @@ export function SearchBar({ onSubmit }: SearchBarProps) {
       value={value}
       onChange={handleChange}
       onKeyUp={handleSubmit}
+      inputProps={{
+        style: {
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: "18px",
+          color: "white",
+        },
+      }}
       sx={{
         maxWidth: "500px",
         borderRadius: 10,
