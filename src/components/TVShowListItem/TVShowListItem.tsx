@@ -6,10 +6,16 @@ import {
   Typography,
 } from "@mui/material";
 import { VITE_SMALL_IMG_COVER_BASE_URL } from "../../config";
+import { TVShow } from "../../Services/TVShowService";
 
 const MAX_TITLE_CHAR = 20;
 
-export function TVShowListItem({ tvShow, onClick }) {
+interface TVShowListItemProps {
+  tvShow: TVShow;
+  onClick: (tvShow: TVShow) => void;
+}
+
+export function TVShowListItem({ tvShow, onClick }: TVShowListItemProps) {
   return (
     <Card sx={{ width: 250, borderRadius: 2, boxShadow: 3 }}>
       <CardActionArea onClick={() => onClick(tvShow)}>

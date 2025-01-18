@@ -1,7 +1,13 @@
+import { TVShow } from "../../Services/TVShowService";
 import { TVShowListItem } from "../TVShowListItem/TVShowListItem";
 import { Box, Typography } from "@mui/material";
 
-export function TVShowList({ tvShowList, onClickItem }) {
+interface TVShowListProps {
+  tvShowList: TVShow[];
+  onClickItem: (tvShow: TVShow) => void;
+}
+
+export function TVShowList({ tvShowList, onClickItem }: TVShowListProps) {
   return (
     <Box
       sx={{
