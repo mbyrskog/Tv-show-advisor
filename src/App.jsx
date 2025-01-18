@@ -65,11 +65,13 @@ export function App() {
     <Box
       sx={{
         minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
         background: currentTVShow
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${VITE_BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
         color: "white",
-        p: 6,
+        p: 10,
       }}
     >
       {/* Header */}
@@ -91,12 +93,12 @@ export function App() {
       </Box>
 
       {/* TV Show Details */}
-      <Box sx={{ mt: 4 }}>
+      <Box sx={{ mt: 4, flexGrow: 1 }}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </Box>
 
       {/* Recommended Shows */}
-      <Box sx={{ mt: 10 }}>
+      <Box sx={{ mt: "auto", pb: 1 }}>
         {currentTVShow && (
           <TVShowList
             onClickItem={updateCurrentTVShow}
