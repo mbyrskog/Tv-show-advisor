@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { TVShowService } from "./api/TVShowService";
+import { TVShow, TVShowService } from "./Services/TVShowService";
 import { VITE_BACKDROP_BASE_URL } from "./config";
-import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
-import { Logo } from "./components/Logo/Logo";
-import logoImg from "/assets/images/logo.png";
-import { TVShowList } from "./components/TVShowList/TVShowList";
-import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Box, Grid2 } from "@mui/material";
+import { Logo } from "./components/Logo/Logo";
+import { SearchBar } from "./components/SearchBar/SearchBar";
+import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
+import { TVShowList } from "./components/TVShowList/TVShowList";
+import logoImg from "./assets/logo.png";
 
 export function App() {
-  const [currentTVShow, setCurrentTVShow] = useState();
-  const [recommendationList, setRecommendationList] = useState([]);
+  const [currentTVShow, setCurrentTVShow] = useState<TVShow | null>(null);
+  const [recommendationList, setRecommendationList] = useState<TVShow[]>([]);
 
   useEffect(() => {
     fetchPopulars();
@@ -33,7 +33,7 @@ export function App() {
     }
   }
 
-  async function fetchRecommendations(tvShowId) {
+  async function fetchRecommendations(tvShowId: number) {
     try {
       const recommendationListResp = await TVShowService.fetchRecommendations(
         tvShowId
@@ -46,11 +46,11 @@ export function App() {
     }
   }
 
-  function updateCurrentTVShow(tvShow) {
+  function updateCurrentTVShow(tvShow: TVShow) {
     setCurrentTVShow(tvShow);
   }
 
-  async function fetchByTitle(title) {
+  async function fetchByTitle(title: string) {
     try {
       const searchResponse = await TVShowService.fetchByTitle(title);
       if (searchResponse.length > 0) {
@@ -77,7 +77,7 @@ export function App() {
       {/* Header */}
       <Box>
         <Grid2 container spacing={2} alignItems="center">
-          <Grid2 xs={12} md={4} lg={4}>
+          <Grid2>
             <Logo
               title="What to watch"
               subtitle="Find a show you may like"
@@ -86,7 +86,7 @@ export function App() {
           </Grid2>
 
           {/* Search bar */}
-          <Grid2 xs={12} md={8} lg={8} sx={{ display: "flex", flexGrow: 1 }}>
+          <Grid2 sx={{ display: "flex", flexGrow: 1 }}>
             <SearchBar onSubmit={fetchByTitle} />
           </Grid2>
         </Grid2>

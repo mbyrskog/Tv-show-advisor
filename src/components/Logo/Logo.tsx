@@ -1,6 +1,12 @@
 import { Box, Typography } from "@mui/material";
 
-export function Logo({ image, title, subtitle }) {
+interface LogoProps {
+  image: string;
+  title: string;
+  subtitle: string;
+}
+
+export function Logo({ image, title, subtitle }: LogoProps) {
   return (
     <Box
       sx={{

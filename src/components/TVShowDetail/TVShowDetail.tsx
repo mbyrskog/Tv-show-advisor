@@ -1,7 +1,12 @@
-import { FiveStarRating } from "../FiveStarRating/FiveStarRating";
 import { Box, Typography, Stack } from "@mui/material";
+import { FiveStarRating } from "../FiveStarRating/FiveStarRating";
+import { TVShow } from "../../Services/TVShowService";
 
-export function TVShowDetail({ tvShow }) {
+interface TVShowDetailProps {
+  tvShow: TVShow;
+}
+
+export function TVShowDetail({ tvShow }: TVShowDetailProps) {
   const rating = tvShow.vote_average / 2;
 
   return (

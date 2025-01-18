@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { Input } from "@mui/material";
 
-export function SearchBar({ onSubmit }) {
+interface SearchBarProps {
+  onSubmit: (query: string) => void;
+}
+
+export function SearchBar({ onSubmit }: SearchBarProps) {
   const [value, setValue] = useState("");
 
-  function handleSubmit(e) {
-    if (e.key === "Enter" && e.target.value.trim() !== "") {
-      onSubmit(e.target.value);
+  function handleSubmit(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter" && e.currentTarget.value.trim() !== "") {
+      onSubmit(e.currentTarget.value);
       setValue("");
     }
   }
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
   }
 
