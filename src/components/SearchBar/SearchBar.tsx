@@ -7,6 +7,7 @@ interface SearchBarProps {
 
 export function SearchBar({ onSubmit }: SearchBarProps) {
   const [value, setValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   function handleSubmit(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter" && e.currentTarget.value.trim() !== "") {
@@ -23,10 +24,12 @@ export function SearchBar({ onSubmit }: SearchBarProps) {
     <Input
       fullWidth
       disableUnderline
-      placeholder="Find a TV show you may like"
+      placeholder={isFocused ? "" : "Find a TV show you may like"}
       value={value}
       onChange={handleChange}
       onKeyUp={handleSubmit}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
       inputProps={{
         style: {
           textAlign: "center",

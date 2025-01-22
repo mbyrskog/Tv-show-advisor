@@ -93,12 +93,12 @@ export function App() {
       </Container>
 
       {/* TV Show Details */}
-      <Container sx={{ mt: 4, flexGrow: 1 }}>
+      <Container sx={{ flexGrow: 1 }}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </Container>
 
       {/* Recommended Shows */}
-      <Container sx={{ mt: 4 }}>
+      <Container>
         {currentTVShow && (
           <TVShowList
             onClickItem={updateCurrentTVShow}
