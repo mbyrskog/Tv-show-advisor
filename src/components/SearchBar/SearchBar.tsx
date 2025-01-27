@@ -22,6 +22,7 @@ export function SearchBar({ onSubmit }: SearchBarProps) {
 
   return (
     <Input
+      type="search"
       fullWidth
       disableUnderline
       placeholder={isFocused ? "" : "Find a TV show you may like"}
