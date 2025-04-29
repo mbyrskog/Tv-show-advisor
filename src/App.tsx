@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TVShow, TVShowService } from "./Services/TVShowService";
 import { VITE_BACKDROP_BASE_URL } from "./config";
-import { Box, Container, Grid2 } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import { Logo } from "./components/Logo/Logo";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
@@ -76,20 +76,20 @@ export function App() {
     >
       {/* Header */}
       <Container>
-        <Grid2 container spacing={2} alignItems="center">
-          <Grid2 size={{ xs: 12, sm: 3 }}>
+        <Grid container spacing={2} alignItems="center">
+          <Grid size={{ xs: 12, sm: 3 }}>
             <Logo
               title="What to watch"
               subtitle="Find a show you may like"
               image={logoImg}
             />
-          </Grid2>
+          </Grid>
 
           {/* Search bar */}
-          <Grid2 size={{ xs: 12, sm: 8 }} sx={{ display: "flex", flexGrow: 1 }}>
+          <Grid size={{ xs: 12, sm: 8 }} sx={{ display: "flex", flexGrow: 1 }}>
             <SearchBar onSubmit={fetchByTitle} />
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </Container>
 
       {/* TV Show Details */}
