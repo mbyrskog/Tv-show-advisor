@@ -1,0 +1,26 @@
+import { Box, Typography } from "@mui/material";
+
+interface LogoProps {
+  image: string;
+  title: string;
+  subtitle: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({ image, title, subtitle }) => {
+  return (
+    <Box>
+      {/* Logo Image and Title */}
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <img src={image} alt="logo" style={{ width: 50, height: 50 }} />
+        <Typography variant="h5" fontWeight="bold">
+          {title}
+        </Typography>
+      </Box>
+
+      {/* Subtitle */}
+      <Typography variant="subtitle1" color="text.secondary">
+        {subtitle}
+      </Typography>
+    </Box>
+  );
+};
