@@ -9,45 +9,44 @@ export const SearchBar = ({ onSubmit }: SearchBarProps) => {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && e.currentTarget.value.trim() !== "") {
-      onSubmit(e.currentTarget.value);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (value.trim() !== "") {
+      onSubmit(value);
       setValue("");
+      (document.getElementById("searchInput") as HTMLInputElement)?.blur();
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
   return (
-    <Input
-      id="searchInput11111111111111111111111"
-      type="search"
-      fullWidth
-      disableUnderline
-      placeholder={isFocused ? "" : "Find a TV show you may like"}
-      value={value}
-      onChange={handleChange}
-      onKeyUp={handleSubmit}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      inputProps={{
-        style: {
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: "18px",
+    <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+      <Input
+        id="searchInput"
+        type="search"
+        fullWidth
+        disableUnderline
+        placeholder={isFocused ? "" : "Find a TV show you may like"}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        inputProps={{
+          style: {
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "18px",
+            color: "white",
+          },
+        }}
+        sx={{
+          maxWidth: "500px",
+          borderRadius: 10,
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          backdropFilter: "blur(5px)",
           color: "white",
-        },
-      }}
-      sx={{
-        maxWidth: "500px",
-        borderRadius: 10,
-        backgroundColor: "rgba(255, 255, 255, 0.2)",
-        backdropFilter: "blur(5px)",
-        color: "white",
-        padding: 2,
-      }}
-    />
+          padding: 2,
+        }}
+      />
+    </form>
   );
 };
