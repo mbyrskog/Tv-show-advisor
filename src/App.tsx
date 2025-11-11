@@ -12,16 +12,6 @@ export const App = () => {
   const [currentTVShow, setCurrentTVShow] = useState<TVShow | null>(null);
   const [recommendationList, setRecommendationList] = useState<TVShow[]>([]);
 
-  useEffect(() => {
-    fetchPopulars();
-  }, []);
-
-  useEffect(() => {
-    if (currentTVShow) {
-      fetchRecommendations(currentTVShow.id);
-    }
-  }, [currentTVShow]);
-
   const fetchPopulars = async (): Promise<void> => {
     try {
       const popularTVShowList = await TVShowService.fetchPopulars();
@@ -29,6 +19,7 @@ export const App = () => {
         setCurrentTVShow(popularTVShowList[0]);
       }
     } catch (error) {
+      console.error(error);
       alert("Something went wrong when fetching the popular TV shows");
     }
   };
@@ -42,6 +33,7 @@ export const App = () => {
         setRecommendationList(recommendationListResp.slice(0, 10));
       }
     } catch (error) {
+      console.error(error);
       alert("Something went wrong fetching the recommendations");
     }
   };
@@ -57,9 +49,20 @@ export const App = () => {
         setCurrentTVShow(searchResponse[0]);
       }
     } catch (error) {
+      console.error(error);
       alert("Something went wrong searching for a TV show");
     }
   };
+
+  useEffect(() => {
+    fetchPopulars();
+  }, []);
+
+  useEffect(() => {
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
+    }
+  }, [currentTVShow]);
 
   return (
     <Box
